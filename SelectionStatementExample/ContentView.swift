@@ -9,7 +9,9 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var number: Double = 61
+    //MARK: Stored properties
+    //current guess of user
+    @State var currentGuess: Double = 61
     
     var body: some View {
         
@@ -17,11 +19,11 @@ struct ContentView: View {
             
             Group {
                 
-                Slider(value: $number,
+                Slider(value: $currentGuess,
                        in: 0...100,
                        step: 1,
                        label: {
-                    Text("Height")
+                    Text("Current Guess")
                 },
                        minimumValueLabel: {
                     Text("0")
@@ -32,12 +34,12 @@ struct ContentView: View {
                 
                 HStack {
                     Spacer()
-                    Text("\(String(format:"%.0f", number))")
+                    Text("\(String(format:"%.0f", currentGuess))")
                         .font(.title2)
                         .bold()
                     Spacer()
                 }
-
+                
             }
             
             HStack {
@@ -54,7 +56,7 @@ struct ContentView: View {
                 
                 Spacer()
             }
-
+            
             Spacer()
         }
         .padding(.horizontal, 20)
